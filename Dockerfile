@@ -24,7 +24,7 @@ EXPOSE 32400
 #Update system
 RUN apt-get -q update && \
     apt-get -qy --allow-downgrades --allow-remove-essential --allow-change-held-packages upgrade && \
-    apt-get install -qy --allow-downgrades --allow-remove-essential --allow-change-held-packages curl && \
+    apt-get install -qy --allow-downgrades --allow-remove-essential --allow-change-held-packages curl dbus avahi-daemon && \
     apt-get clean && \
     rm -fr /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -34,8 +34,8 @@ RUN curl -O ${PLEXPKG} && \
     rm -fr plexmediaserver_*.deb
 
 #Copy start script and make executable
-COPY ./start.sh .
-RUN chmod +x ./start.sh
+COPY start.sh start.sh
+RUN chmod +x start.sh
 
 #Set entrypoint of Plex start script
 ENTRYPOINT [ "/app/start.sh" ]

@@ -29,7 +29,7 @@ docker run -d -h *your_host_name* -v /*your_config_location*:/config -v /*your_v
 or for auto detection add --net="host". Though be aware this more insecure but should be fine on your personal servers.
 
 ```
-docker run -d --net="host" -h *your_host_name* -v /*your_config_location*:/config -v /*your_videos_location*:/data -p 32400:32400  plex
+docker run -d --net="host" -v /*your_config_location*:/config -v /*your_videos_location*:/data -p 32400:32400  plex
 ```
 
 The first time it runs, it will initialize the config directory and terminate.
