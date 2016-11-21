@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/sh
 
 rm -rf /var/run/*
 rm -f "/config/Library/Application Support/Plex Media Server/plexmediaserver.pid"
