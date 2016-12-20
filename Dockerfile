@@ -18,8 +18,6 @@ LABEL org.label-schema.version="$PLEX_VERSION" \
       org.label-schema.name="docker-plex" \
       org.label-schema.docker.cmd="docker run -d --net="host" -h *your_host_name* -v /*your_config_location*:/config -v /*your_videos_location*:/data -p 32400:32400 plex"
 
-LABEL PLEX_VERSION="${PLEX_VERSION}"
-
 #Set WORKDIR
 WORKDIR ${APPDIR}
 
