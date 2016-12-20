@@ -8,7 +8,17 @@ ENV DEBIAN_FRONTEND=noninteractive \
     LC_ALL=C.UTF-8 \
     LANGUAGE=en_US.UTF-8 \
     APPDIR=/app \
-    PLEXPKG=https://downloads.plex.tv/plex-media-server/1.3.3.3148-b38628e/plexmediaserver_1.3.3.3148-b38628e_amd64.deb
+    PLEX_VERSION=1.3.3.3148-b38628e
+
+#Set Labels
+LABEL org.label-schema.version="$PLEX_VERSION" \
+      org.label-schema.vcs-url="https://github.com/ecliptik/docker-plex" \
+      org.label-schema.vcs-ref="https://github.com/ecliptik/docker-plex/commits/master" \
+      org.label-schema.vendor="Plex" \
+      org.label-schema.name="docker-plex" \
+      org.label-schema.docker.cmd="docker run -d --net="host" -h *your_host_name* -v /*your_config_location*:/config -v /*your_videos_location*:/data -p 32400:32400 plex"
+
+LABEL PLEX_VERSION="${PLEX_VERSION}"
 
 #Set WORKDIR
 WORKDIR ${APPDIR}
@@ -29,7 +39,7 @@ RUN set -ex && \
         apt-get update && \
         apt-get -y --allow-downgrades --allow-remove-essential --allow-change-held-packages upgrade && \
         apt-get install -y --no-install-recommends $buildDeps && \
-        curl -O ${PLEXPKG} && \
+        curl -O https://downloads.plex.tv/plex-media-server/${PLEX_VERSION}/plexmediaserver_${PLEX_VERSION}_amd64.deb && \
         dpkg --install --force-all plexmediaserver_*.deb && \
         apt-get purge -y --auto-remove $buildDeps && \
         apt-get clean && \
