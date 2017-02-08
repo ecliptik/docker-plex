@@ -8,7 +8,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
     LC_ALL=C.UTF-8 \
     LANGUAGE=en_US.UTF-8 \
     APPDIR=/app \
-    PLEX_VERSION=1.3.3.3148-b38628e
+    PLEX_VERSION=1.3.4.3285-b46e0ea
 
 #Set Labels
 LABEL org.label-schema.version="$PLEX_VERSION" \
