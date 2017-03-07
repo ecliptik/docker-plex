@@ -2,6 +2,10 @@
 
 [![](https://images.microbadger.com/badges/image/ecliptik/docker-plex.svg)](https://microbadger.com/images/ecliptik/docker-plex "Get your own image badge on microbadger.com")
 
+--------------------
+Notice: This repository is no longer be update due to the release of the [official Plex Media Server Docker container](https://github.com/plexinc/pms-docker) which includes many more features.
+--------------------
+
 This is a Dockerfile to set up [Plex Media Server](https://plex.tv/)
 
 Build using the Dockerfile
